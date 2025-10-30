@@ -271,7 +271,21 @@
             color: #00ffff;
             cursor: pointer;
             font-weight: 600;
+            transition: all 0.3s;
         }
+
+        /* --- NEW STYLE FOR APPLY BUTTON --- */
+        .apply-btn {
+            background: rgba(0, 255, 136, 0.2);
+            border-color: rgba(0, 255, 136, 0.5);
+            color: #00ff88;
+        }
+        .apply-btn:hover {
+            background: rgba(0, 255, 136, 0.4);
+            color: #fff;
+        }
+        /* ---------------------------------- */
+
 
         .modal {
             display: none;
@@ -320,7 +334,6 @@
         </div>
     </div>
 
-    <!-- LOGIN -->
     <div class="auth-page" id="loginPage">
         <div class="auth-box">
             <h1 class="auth-title">Login</h1>
@@ -339,7 +352,6 @@
         </div>
     </div>
 
-    <!-- SIGNUP -->
     <div class="auth-page" id="signupPage" style="display:none;">
         <div class="auth-box">
             <h1 class="auth-title">Sign Up</h1>
@@ -361,6 +373,8 @@
                     <option value="8">8</option>
                     <option value="9">9</option>
                     <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
                 </select>
             </div>
             <div class="form-group">
@@ -390,7 +404,6 @@
         </div>
     </div>
 
-    <!-- DASHBOARD -->
     <div class="dashboard-page" id="dashboardPage" style="display:none;">
         <div class="welcome">
             <h2>Welcome, <span id="welcomeName"></span>! 🎉</h2>
@@ -432,7 +445,37 @@
     </div>
 
     <script>
-        const data = [{id:1,name:"NTSE",gradeMin:10,gradeMax:10,board:"Both",subject:"General",deadline:"2025-11-15",reward:"₹1,25,000/year",description:"Premier scholarship",tips:["Practice MAT daily","Cover NCERT","Solve previous papers"]},{id:2,name:"KVPY",gradeMin:11,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-10-30",reward:"₹5,000-7,000/month",description:"Science aptitude",tips:["Strong PCM concepts","Reference books","Aptitude practice"]},{id:3,name:"National Olympiad",gradeMin:8,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-11-20",reward:"International Exposure",description:"Five olympiads",tips:["NCERT first","Olympiad problems","Discussion groups"]},{id:4,name:"Math Olympiad",gradeMin:8,gradeMax:12,board:"Both",subject:"Math",deadline:"2025-12-01",reward:"IMO Selection",description:"Mathematical olympiad",tips:["Master proofs","Competition books","Mathematical reasoning"]},{id:5,name:"NSO",gradeMin:1,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-11-10",reward:"₹50,000",description:"SOF science olympiad",tips:["Complete NCERT","SOF papers","Logical reasoning"]},{id:6,name:"IMO",gradeMin:1,gradeMax:12,board:"Both",subject:"Math",deadline:"2025-11-05",reward:"₹50,000",description:"SOF math olympiad",tips:["Strong basics","Mental math","Shortcuts"]},{id:7,name:"Cyber Olympiad",gradeMin:1,gradeMax:12,board:"Both",subject:"General",deadline:"2025-11-25",reward:"₹25,000",description:"Computer olympiad",tips:["Computer basics","MS Office","Internet safety"]},{id:8,name:"Navodaya Selection",gradeMin:6,gradeMax:6,board:"Both",subject:"General",deadline:"2025-10-31",reward:"Free Education",description:"JNV admission",tips:["Mental ability","Arithmetic","Language"]},{id:9,name:"Avishkar Abhiyan",gradeMin:6,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-12-15",reward:"Funding",description:"Innovation",tips:["Unique ideas","Research","Models"]},{id:10,name:"Ignite Awards",gradeMin:6,gradeMax:10,board:"Both",subject:"General",deadline:"2025-12-20",reward:"₹25,000",description:"Tech innovations",tips:["Problem solving","Creative solutions","Reports"]},{id:11,name:"CBSE Merit",gradeMin:10,gradeMax:12,board:"CBSE",subject:"General",deadline:"2025-08-15",reward:"₹1,000/month",description:"CBSE students",tips:["Score 90%+","NCERT","Board papers"]},{id:12,name:"Inspire",gradeMin:10,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-09-30",reward:"₹80,000/year",description:"DST scholarship",tips:["95%+ target","Science focus","Practicals"]},{id:13,name:"NMMS",gradeMin:8,gradeMax:8,board:"Both",subject:"General",deadline:"2025-11-30",reward:"₹12,000/year",description:"Merit scholarship",tips:["Class 8 syllabus","Mental ability","Aptitude"]},{id:14,name:"ONGC Pragnya",gradeMin:9,gradeMax:12,board:"Both",subject:"General",deadline:"2025-10-15",reward:"₹48,000/year",description:"ONGC scholarship",tips:["60%+ marks","Aptitude","GK"]},{id:15,name:"Jindal Scholarship",gradeMin:10,gradeMax:12,board:"Both",subject:"General",deadline:"2025-09-20",reward:"₹15,000/year",description:"Merit based",tips:["Consistent performance","Documentation","Board prep"]},{id:16,name:"Indian Oil",gradeMin:4,gradeMax:12,board:"Both",subject:"General",deadline:"2025-10-10",reward:"₹2,000/month",description:"IOC scholarship",tips:["60%+ score","Focus weak subjects","Regular study"]},{id:17,name:"Swami Dayanand",gradeMin:10,gradeMax:12,board:"Both",subject:"General",deadline:"2025-08-30",reward:"₹6,000/year",description:"Merit scholarship",tips:["75%+ target","Core subjects","Revision"]},{id:18,name:"LIC Golden Jubilee",gradeMin:10,gradeMax:12,board:"Both",subject:"General",deadline:"2025-09-15",reward:"₹20,000",description:"For weaker sections",tips:["60%+ maintain","Documents","Board prep"]},{id:19,name:"MCM Scholarship",gradeMin:6,gradeMax:12,board:"Both",subject:"General",deadline:"2025-11-01",reward:"₹10,000/year",description:"Minority scholarship",tips:["50%+ marks","Performance","Papers"]},{id:20,name:"Vahani",gradeMin:5,gradeMax:7,board:"Both",subject:"General",deadline:"2025-10-20",reward:"₹15,000/year",description:"Underprivileged",tips:["Excellence","Certificates","Attendance"]},{id:21,name:"Kalpana Chawla",gradeMin:9,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-11-10",reward:"₹30,000/year",description:"Girls in science",tips:["Science focus","STEM","60%+ marks"]},{id:22,name:"Netaji Subhas",gradeMin:10,gradeMax:12,board:"State",subject:"General",deadline:"2025-09-10",reward:"₹10,000/year",description:"State board",tips:["State syllabus","Patterns","75%+ min"]},{id:23,name:"Pratibha Kiran",gradeMin:12,gradeMax:12,board:"Both",subject:"General",deadline:"2025-08-25",reward:"₹5,000/year",description:"Girls merit",tips:["60%+ target","Core subjects","Sample papers"]},{id:24,name:"AICTE Pragati",gradeMin:10,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-10-05",reward:"₹30,000/year",description:"Girls technical",tips:["Science math","Aptitude","Documents"]},{id:25,name:"Young Scientist",gradeMin:8,gradeMax:11,board:"Both",subject:"Science",deadline:"2025-12-10",reward:"Training",description:"Research training",tips:["Curiosity","Projects","Interview"]},{id:26,name:"English Olympiad",gradeMin:1,gradeMax:12,board:"Both",subject:"English",deadline:"2025-11-08",reward:"₹50,000",description:"IEO",tips:["Grammar","Vocabulary","Comprehension"]},{id:27,name:"GK Olympiad",gradeMin:1,gradeMax:10,board:"Both",subject:"General",deadline:"2025-11-22",reward:"₹25,000",description:"General knowledge",tips:["Newspapers","Current affairs","Geography"]}];
+        // --- UPDATED DATA WITH 'applyLink' ---
+        const data = [
+            {id:1,name:"NTSE",gradeMin:10,gradeMax:10,board:"Both",subject:"General",deadline:"2025-11-15",reward:"₹1,25,000/year",description:"Premier scholarship",tips:["Practice MAT daily","Cover NCERT","Solve previous papers"],applyLink:"https://ncert.nic.in/ntse.php"},
+            {id:2,name:"KVPY (Replaced by INSPIRE)",gradeMin:11,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-10-30",reward:"₹5,000-7,000/month",description:"Science aptitude",tips:["Strong PCM concepts","Reference books","Aptitude practice"],applyLink:"https://www.online-inspire.gov.in/"},
+            {id:3,name:"National Science Olympiad",gradeMin:8,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-11-20",reward:"International Exposure",description:"HBCSE olympiads",tips:["NCERT first","Olympiad problems","Discussion groups"],applyLink:"https://olympiads.hbcse.tifr.res.in/science-olympiad/"},
+            {id:4,name:"Math Olympiad (INMO)",gradeMin:8,gradeMax:12,board:"Both",subject:"Math",deadline:"2025-12-01",reward:"IMO Selection",description:"Mathematical olympiad",tips:["Master proofs","Competition books","Mathematical reasoning"],applyLink:"https://olympiads.hbcse.tifr.res.in/mathematical-olympiad/"},
+            {id:5,name:"NSO (SOF)",gradeMin:1,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-11-10",reward:"₹50,000",description:"SOF science olympiad",tips:["Complete NCERT","SOF papers","Logical reasoning"],applyLink:"https://sofworld.org/nso"},
+            {id:6,name:"IMO (SOF)",gradeMin:1,gradeMax:12,board:"Both",subject:"Math",deadline:"2025-11-05",reward:"₹50,000",description:"SOF math olympiad",tips:["Strong basics","Mental math","Shortcuts"],applyLink:"https://sofworld.org/imo"},
+            {id:7,name:"Cyber Olympiad (NCO)",gradeMin:1,gradeMax:12,board:"Both",subject:"General",deadline:"2025-11-25",reward:"₹25,000",description:"Computer olympiad",tips:["Computer basics","MS Office","Internet safety"],applyLink:"https://sofworld.org/nco"},
+            {id:8,name:"Navodaya Selection (JNVST)",gradeMin:6,gradeMax:6,board:"Both",subject:"General",deadline:"2025-10-31",reward:"Free Education",description:"JNV admission",tips:["Mental ability","Arithmetic","Language"],applyLink:"https://navodaya.gov.in/nvs/en/Admission-JNVST/JNVST-class/"},
+            {id:9,name:"Rashtriya Avishkar Abhiyan",gradeMin:6,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-12-15",reward:"Funding",description:"Innovation",tips:["Unique ideas","Research","Models"],applyLink:"https://samagra.education.gov.in/raa.html"},
+            {id:10,name:"Ignite Awards",gradeMin:6,gradeMax:10,board:"Both",subject:"General",deadline:"2025-12-20",reward:"₹25,000",description:"Tech innovations",tips:["Problem solving","Creative solutions","Reports"],applyLink:"https://nif.org.in/ignite"},
+            {id:11,name:"CBSE Merit Scholarship",gradeMin:10,gradeMax:12,board:"CBSE",subject:"General",deadline:"2025-08-15",reward:"₹1,000/month",description:"CBSE students",tips:["Score 90%+","NCERT","Board papers"],applyLink:"https://www.cbse.gov.in/cbsenew/scholar.html"},
+            {id:12,name:"Inspire Scholarship (SHE)",gradeMin:10,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-09-30",reward:"₹80,000/year",description:"DST scholarship",tips:["95%+ target","Science focus","Practicals"],applyLink:"https://www.online-inspire.gov.in/"},
+            {id:13,name:"NMMS",gradeMin:8,gradeMax:8,board:"Both",subject:"General",deadline:"2025-11-30",reward:"₹12,000/year",description:"Merit scholarship",tips:["Class 8 syllabus","Mental ability","Aptitude"],applyLink:"https://scholarships.gov.in/"},
+            {id:14,name:"ONGC Scholarship",gradeMin:9,gradeMax:12,board:"Both",subject:"General",deadline:"2025-10-15",reward:"₹48,000/year",description:"ONGC scholarship",tips:["60%+ marks","Aptitude","GK"],applyLink:"https://ongcscholar.org/"},
+            {id:15,name:"Jindal Scholarship",gradeMin:10,gradeMax:12,board:"Both",subject:"General",deadline:"2025-09-20",reward:"₹15,000/year",description:"Merit based",tips:["Consistent performance","Documentation","Board prep"],applyLink:"https://www.sitaramjindalfoundation.org/scholarships.php"},
+            {id:16,name:"Indian Oil Scholarship",gradeMin:4,gradeMax:12,board:"Both",subject:"General",deadline:"2025-10-10",reward:"₹2,000/month",description:"IOC scholarship",tips:["60%+ score","Focus weak subjects","Regular study"],applyLink:"https://iocl.com/scholarships"},
+            {id:17,name:"Swami Dayanand Scholarship",gradeMin:10,gradeMax:12,board:"Both",subject:"General",deadline:"2025-08-30",reward:"₹6,000/year",description:"Merit scholarship",tips:["75%+ target","Core subjects","Revision"],applyLink:"https://www.swamidayanand.org/"},
+            {id:18,name:"LIC Golden Jubilee",gradeMin:10,gradeMax:12,board:"Both",subject:"General",deadline:"2025-09-15",reward:"₹20,000",description:"For weaker sections",tips:["60%+ maintain","Documents","Board prep"],applyLink:"https://licindia.in/Bottom-Links/Golden-Jubilee-Foundation/Scholarship-Scheme"},
+            {id:19,name:"MCM Scholarship (Minority)",gradeMin:6,gradeMax:12,board:"Both",subject:"General",deadline:"2025-11-01",reward:"₹10,000/year",description:"Minority scholarship",tips:["50%+ marks","Performance","Papers"],applyLink:"https://scholarships.gov.in/"},
+            {id:20,name:"Vahani Scholarship",gradeMin:5,gradeMax:7,board:"Both",subject:"General",deadline:"2025-10-20",reward:"₹15,000/year",description:"Underprivileged",tips:["Excellence","Certificates","Attendance"],applyLink:"https://www.vahanischolarship.com/"},
+            {id:21,name:"Kalpana Chawla Scholarship",gradeMin:9,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-11-10",reward:"₹30,000/year",description:"Girls in science",tips:["Science focus","STEM","60%+ marks"],applyLink:"https://scholarships.gov.in/"},
+            {id:22,name:"Netaji Subhas (SVMCM)",gradeMin:10,gradeMax:12,board:"State",subject:"General",deadline:"2025-09-10",reward:"₹10,000/year",description:"State board (WB)",tips:["State syllabus","Patterns","75%+ min"],applyLink:"https://svmcm.wbhed.gov.in/"},
+            {id:23,name:"Pratibha Kiran (MP)",gradeMin:12,gradeMax:12,board:"Both",subject:"General",deadline:"2025-08-25",reward:"₹5,000/year",description:"Girls merit (MP)",tips:["60%+ target","Core subjects","Sample papers"],applyLink:"https://scholarshipportal.mp.nic.in/"},
+            {id:24,name:"AICTE Pragati",gradeMin:10,gradeMax:12,board:"Both",subject:"Science",deadline:"2025-10-05",reward:"₹30,000/year",description:"Girls technical",tips:["Science math","Aptitude","Documents"],applyLink:"https://www.aicte-india.org/schemes/students-development-schemes/Pragati"},
+            {id:25,name:"Young Scientist (YUVIKA)",gradeMin:8,gradeMax:11,board:"Both",subject:"Science",deadline:"2025-12-10",reward:"Training",description:"ISRO research",tips:["Curiosity","Projects","Interview"],applyLink:"https://www.isro.gov.in/YUVIKA.html"},
+            {id:26,name:"English Olympiad (IEO)",gradeMin:1,gradeMax:12,board:"Both",subject:"English",deadline:"2025-11-08",reward:"₹50,000",description:"SOF IEO",tips:["Grammar","Vocabulary","Comprehension"],applyLink:"https://sofworld.org/ieo"},
+            {id:27,name:"GK Olympiad (IGKO)",gradeMin:1,gradeMax:10,board:"Both",subject:"General",deadline:"2025-11-22",reward:"₹25,000",description:"SOF General knowledge",tips:["Newspapers","Current affairs","Geography"],applyLink:"https://sofworld.org/igko"}
+        ];
+        // ------------------------------------
 
         let user = null;
         let users = JSON.parse(localStorage.getItem('allUsers') || '[]');
@@ -491,23 +534,49 @@
             updateStats();
         }
 
+        // --- UPDATED RENDER FUNCTION ---
         function render(items) {
             shown = items;
             const html = items.map(s => {
                 const matched = user.grade >= s.gradeMin && user.grade <= s.gradeMax && (s.board === 'Both' || s.board === user.board);
                 const saved = user.bookmarks.includes(s.id);
-                return `<div class="card">${matched ? '<div class="matched-badge">✨ Matched</div>' : ''}<h3 class="card-title">${s.name}</h3><p style="color:#aaa;margin-bottom:1rem;">${s.description}</p><div class="card-info"><strong>Grade:</strong> ${s.gradeMin}-${s.gradeMax}</div><div class="card-info"><strong>Board:</strong> ${s.board}</div><div class="card-info"><strong>Deadline:</strong> ${s.deadline}</div><div class="card-info"><strong>Reward:</strong> ${s.reward}</div><div class="card-actions"><button class="card-btn" onclick="showDetail(${s.id})">📚 Tips</button><button class="card-btn" onclick="toggleSave(${s.id})">${saved ? '⭐ Saved' : '💾 Save'}</button></div></div>`;
+                // Added 🚀 Apply button
+                return `<div class="card">
+                            ${matched ? '<div class="matched-badge">✨ Matched</div>' : ''}
+                            <h3 class="card-title">${s.name}</h3>
+                            <p style="color:#aaa;margin-bottom:1rem;">${s.description}</p>
+                            <div class="card-info"><strong>Grade:</strong> ${s.gradeMin}-${s.gradeMax}</div>
+                            <div class="card-info"><strong>Board:</strong> ${s.board}</div>
+                            <div class="card-info"><strong>Deadline:</strong> ${s.deadline}</div>
+                            <div class="card-info"><strong>Reward:</strong> ${s.reward}</div>
+                            <div class="card-actions">
+                                <button class="card-btn" onclick="showDetail(${s.id})">📚 Tips</button>
+                                <button class="card-btn" onclick="toggleSave(${s.id})">${saved ? '⭐ Saved' : '💾 Save'}</button>
+                                <button class="card-btn apply-btn" onclick="window.open('${s.applyLink}', '_blank')">🚀 Apply</button>
+                            </div>
+                        </div>`;
             }).join('');
             document.getElementById('list').innerHTML = html;
             updateStats();
         }
+        // ---------------------------------
 
+        // --- UPDATED SHOWDETAIL FUNCTION ---
         function showDetail(id) {
             const s = data.find(x => x.id === id);
+            // Added Apply Now button
             document.getElementById('modalTitle').textContent = s.name;
-            document.getElementById('modalBody').innerHTML = `<p><strong>Description:</strong> ${s.description}</p><p><strong>Reward:</strong> ${s.reward}</p><p><strong>Deadline:</strong> ${s.deadline}</p><h3 style="color:#00ff88;margin-top:1.5rem;">Tips:</h3><ul>${s.tips.map(t => `<li style="margin:0.5rem 0;">${t}</li>`).join('')}</ul>`;
+            document.getElementById('modalBody').innerHTML = `
+                <p><strong>Description:</strong> ${s.description}</p>
+                <p><strong>Reward:</strong> ${s.reward}</p>
+                <p><strong>Deadline:</strong> ${s.deadline}</p>
+                <h3 style="color:#00ff88;margin-top:1.5rem;">Tips:</h3>
+                <ul>${s.tips.map(t => `<li style="margin:0.5rem 0;">${t}</li>`).join('')}</ul>
+                <button class="btn" onclick="window.open('${s.applyLink}', '_blank')" style="margin-top: 2rem;">🚀 Apply Now</button>
+            `;
             document.getElementById('modal').style.display = 'flex';
         }
+        // -----------------------------------
 
         function toggleSave(id) {
             const idx = user.bookmarks.indexOf(id);
